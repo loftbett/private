@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PDF画像変換</title>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.10.377/build/pdf.js">
+    </script>
+    <script>
+        let pdfName;                    // PDFファイル名
+        let num = 0;                    // ページ数
+        let pageImages = new Array();   // ページ画像
+
+        // パス
+        const path = "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.10.377/";
+        const worker = path + "build/pdf.worker.js";
+        const cmap = path + "cmaps/";
+
+        const init = () => {
+            // ワーカーのパスをセット
+            pdfjsLib.GlobalWorkerOptions.workerSrc = worker;
+        }
+
+        const loadPDF = async(files) => {
+            // PDFの読み込み
+            const message = document.getElementById("message");
+            message.innerText = "読込中...";
+            const pdfUrl = URL.createObjectURL(files[0]);
+            pdfName = files[0]
+        }
+    </script>
+</head>
+
+</html>
