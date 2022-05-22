@@ -26,9 +26,121 @@
             const message = document.getElementById("message");
             message.innerText = "読込中...";
             const pdfUrl = URL.createObjectURL(files[0]);
-            pdfName = files[0]
+            pdfName = files[0].name.split(".")[0];
+            let pdf;
+            await pdfjsLib.getDocument({
+                url: pdfUrl,
+                cMapUrl: cmap,
+                cMapPacked: true
+            }).promise.then(doc => {
+                // PDFドキュメント、ページ数を取得
+                pdf = doc;
+                num = doc.numPages;
+            });
+            // ページごとにキャンパスに描画
+            pageImages = [];
+            document.getElementById("pdf").innerHTML = "";
+            for (let i=1; i<=num; i++) {
+                const page = await pdf.getPage(i);
+                const div = document.createElement("div");
+                // サムネイル用キャンパスを作成
+                const canvas1 = document.createElement("canvas");
+                const context1 = canvas1.getContext("2d");
+                const viewport1 = page.getViewport({scale: 0.3});
+                canvas1.width = viewport1.width;
+                canvas1.height = viewport1.height;
+                await page.render({
+                    canvasContext: context1,
+                    viewport: viewport1
+                }).promise;
+                // 画像用キャンバスを作成
+                const canvas2 = document.createElement("canvas");
+                const context2 = canvas2.getContext("2d");
+                const viewport2 = page.getViewport({scale:2});
+                canvas2.width = viewport2.width;
+                canvas2.height = viewport2.height;
+                await page.render({
+                    canvasContext: context2,
+                    viewport: viewport2
+                }).promise;
+                pageImages[i] = canvas2.toDataURL("image/png");
+                // クリック時に画像を別ウィンドウで表示
+                canvas1.onclick = () => {
+                    const newWindow = window.open();
+                    newWindow.document.write(`<img src="${pageImages[i]}">`);
+                }
+                div.appendChild(canvas1);
+                // 「保存」ボタンを作成
+                const button = document.createElement("button");
+                button.innerText = `ページ${i}を保存`;
+                button.onclick = () => saveImage(i);
+                div.appendChild(button);
+                document.getElementById("pdf").appendChild(div);
+                message.innerText = `読込中...(${i}ページ)`;
+            }
+            message.innerText=`読込完了(全${num}ページ)`;
+        }
+        const saveImage = (n,aName = null) => {
+            // 画像の保存 (ダウンロード)
+            let filename;
+            if (aName == null) {
+                const name = `${pdfName}_${n}.png`;
+                filename = window.prompt("ファイル名を入力してください", name);
+            } else {
+                filename = `${aName}_${n}.png`;
+            }
+            if (filename != null) {
+                const a = document.createElement("a");
+                a.href = pageImages[n];
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        }
+        
+        const saveAllImage = () => {
+            //全てのページ画像を保存
+            if(num == 0) {
+                alert("保存できる画像がありません。");
+            } else {
+                const aName = window.prompt("ファイル名を入力してください",pdfName);
+                if(aName != null) {
+                    for (let i=1; i<=num; i++){
+                        saveImage(i, aName);
+                    }
+                }
+            }
         }
     </script>
+    <style>
+        #message {
+            color: #009900;
+            font-size: small;
+        }
+        #pdf div {
+            float: left;
+            text-align: center;
+            margin: 10px;
+        }
+        canvas {
+            display: block;
+            outline: thin solid #000000;
+            box-shadow: 2px 2px 10px #666666;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        canvas:hover {outline: 2px solid #FF0000;}
+    </style>
 </head>
+<body onload="init()">
+    <p>PDF画像変換</p>
+    <input type="button" value="全ページ画像を保存" onclick="saveAllImage()">
+    <input type="file" accept=".pdf" onchange="loadPDF(this.files)">
+    <span id="message"></span>
+    <hr>
+    <div id="pdf"></div>
+
+</body>
 
 </html>
