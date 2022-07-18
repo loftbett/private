@@ -17,9 +17,18 @@
         "js": ["js/content.js"]
     }],
     "background": {
-        "scripts": ["js/background.js"]
+        "service_worker": "background.js",
+        "type": "module"
     },
     "permissions": [
+        "activeTab",
+        "contextMenus",
+        "clipboardWrite",
+        "scripting",
         "tabs"
+    ],
+    "host_permissions": [
+        "https://www.google.com/*",
+        "<all_urls>"
     ]
 }

@@ -2,7 +2,8 @@
 　https://qiita.com/shiro1212/items/12f0a767494a7b2ab0b3
 
 ## StudyPage  
-　https://qiita.com/sakaimo/items/416f36db1aa982d8d00c
+　https://qiita.com/sakaimo/items/416f36db1aa982d8d00c  
+　https://r-40021.github.io/blog/2021-08/chrome-extension-3
 
 ## action
 拡張機能をクリックしたときのアクションを定義。  
