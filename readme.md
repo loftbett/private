@@ -1,8 +1,17 @@
 # Memo
 
 ## VSC関連
-1.  末尾スペース除去をMarkdownの場合に対象外とする方法
-　https://github.com/microsoft/vscode/issues/1679
+1. MarkDownのプレビュー方法  
+　［Ctrl］＋［K］→［V］  
+　［Ctrl］＋［Shift］＋［V］  
+
+1. setting.jsonの開き方  
+　設定画面のオープン　［Ctrl］＋［,］  
+　jsonのオープン　設定画面のタブ部分の右端にあるアイコンをクリック
+　
+1.  末尾スペース除去をMarkdownの場合に対象外とする方法  
+　https://github.com/microsoft/vscode/issues/1679  
+　setting.jsonで下記の設定を行う。  
 
     ```
       "files.trimTrailingWhitespace": true,
@@ -11,11 +20,16 @@
       },
     ```
 
+1. Emmet(自動補完)機能の有効化  
+　tabを押した際に、自動補完を行う候補を表示する方法。
+　　左メニューの歯車→設定
+　「Trigger Expansion On Tab」を検索窓に入力し、表示される設定を有効に切り替える。
+
 1. ランダム情報の作成ツール(vscode-random)
 
     ```
-    　　　挿入したい場所にカーソルを持って行き、
-    　　　コマンドパレット(command+p)を開いて"random"と打つ
+    挿入したい場所にカーソルを持って行き、
+    コマンドパレット(command+p)を開いて"random"と打つ
     ```
 
 1. 補完処理のショートカット  
