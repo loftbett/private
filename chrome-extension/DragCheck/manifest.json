@@ -21,11 +21,9 @@
         "type": "module"
     },
     "permissions": [
-        "activeTab",
-        "contextMenus",
-        "clipboardWrite",
-        "scripting",
-        "tabs"
+        "activeTab"
+        ,"scripting"
+        ,"contextMenus"
     ],
     "host_permissions": [
         "https://www.google.com/*",

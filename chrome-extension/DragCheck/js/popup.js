@@ -36,6 +36,11 @@ chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, tabs => {
         windowOpen("https://social-plugins.line.me/lineit/share?url=" + encodeURIComponent(tabURL));
     }, false);
 
+    if(!/http\:\/\/|https\:\/\//.test(tabURL)){
+        const element= document.getElementById("sns");
+        element.style.margintop = "1.5em";
+        element.textContent = "このページでは SNSを用いたシェア機能を利用できません。";
+    }
 })
 
 let timeout;
