@@ -1,0 +1,17 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Drag Chekker",
+            "url": "https://r-40021.github.io/blog/2021-08/chrome-extension-6",
+            "webRoot": "${workspaceFolder}",
+            "runtimeArgs": ["--load-extension=C:/Users/snakajima/MyDocument/_git/private/chrome-extension/DragCheck"],
+            "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+        }
+    ]
+}
