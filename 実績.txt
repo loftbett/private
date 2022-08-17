@@ -1,1 +1,6 @@
-8/13 13:50 - 15:20 trailhead
+・TODO
+　aws クラウドプラクティショナー
+　　〇aws redshiftの把握
+　　https://techblog.nhn-techorus.com/archives/8232
+
+
