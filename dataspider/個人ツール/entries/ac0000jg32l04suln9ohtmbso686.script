@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<script>
+  <memento>
+    <option type="attributes">
+      <DATA_PROCESSING_CONNECTION_OPTION_XMLFW_CONF><![CDATA[false]]></DATA_PROCESSING_CONNECTION_OPTION_XMLFW_CONF>
+    </option>
+    <extension type="attributes">
+      <created><![CDATA[1662702384852]]></created>
+      <lastUpdated><![CDATA[1662702634274]]></lastUpdated>
+      <testArgumentValues children="property" type="attributes"/>
+      <migrationFlows type="attributes"/>
+      <gridSize><![CDATA[32]]></gridSize>
+    </extension>
+  </memento>
+  <children type="components">
+    <memento id="uc0000jg32l04suln9eiip9io686" type="CommentComponent">
+      <extension type="attributes">
+        <locationX><![CDATA[336]]></locationX>
+        <locationY><![CDATA[50]]></locationY>
+        <index><![CDATA[2]]></index>
+        <height><![CDATA[217]]></height>
+        <width><![CDATA[480]]></width>
+        <text><![CDATA[入力はi-inputに文字列として指定する。
+
+利用する場合に、テーブル型のデータを扱う際には、
+scr呼び出しコンポーネントをfor-eachコンポーネントに繋いで、
+右のメモに記載しているxml構造をスキーマ読込することで可能。]]></text>
+      </extension>
+    </memento>
+    <memento id="p60000jg32l04suln9ql7of0o686" type="CommentComponent">
+      <extension type="attributes">
+        <locationX><![CDATA[795]]></locationX>
+        <locationY><![CDATA[47]]></locationY>
+        <index><![CDATA[3]]></index>
+        <width><![CDATA[384]]></width>
+        <height><![CDATA[212]]></height>
+        <text><![CDATA[<table>
+	<row>
+		<column></column>
+	</row>
+</table>]]></text>
+      </extension>
+    </memento>
+    <memento id="qe0000jg32l04suln94htmomo686" type="ReturnComponent">
+      <extension type="attributes">
+        <index><![CDATA[1]]></index>
+        <locationX><![CDATA[32]]></locationX>
+        <locationY><![CDATA[256]]></locationY>
+      </extension>
+      <base type="attributes"/>
+    </memento>
+    <memento id="ag0000jg32l04suln9ihtmc2o686" type="ScriptOriginComponent">
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+        <locationX><![CDATA[32]]></locationX>
+        <locationY><![CDATA[32]]></locationY>
+      </extension>
+      <base type="attributes"/>
+    </memento>
+  </children>
+  <children type="relations">
+    <memento id="ko0000jg32l04suln9goh0tgo686" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[ag0000jg32l04suln9ihtmc2o686]]></fromID>
+        <toID><![CDATA[qe0000jg32l04suln94htmomo686]]></toID>
+      </base>
+    </memento>
+  </children>
+</script>

@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<script>
+  <memento>
+    <option type="attributes">
+      <DATA_PROCESSING_CONNECTION_OPTION_XMLFW_CONF><![CDATA[false]]></DATA_PROCESSING_CONNECTION_OPTION_XMLFW_CONF>
+    </option>
+    <extension type="attributes">
+      <created><![CDATA[1662600116186]]></created>
+      <lastUpdated><![CDATA[1662702548451]]></lastUpdated>
+      <testArgumentValues children="property" type="attributes">
+        <property key="i-input"/>
+      </testArgumentValues>
+      <migrationFlows type="attributes"/>
+      <gridSize><![CDATA[32]]></gridSize>
+    </extension>
+  </memento>
+  <children type="components">
+    <memento id="le0000bg0sl04sslm88pl9d0o685" type="VariableProcessingComponent">
+      <name><![CDATA[map_カンマ区切り分割]]></name>
+      <extension type="attributes">
+        <inputPSPSupported><![CDATA[false]]></inputPSPSupported>
+        <outputPSPSupported><![CDATA[false]]></outputPSPSupported>
+        <locationX><![CDATA[480]]></locationX>
+        <locationY><![CDATA[96]]></locationY>
+        <index><![CDATA[8]]></index>
+        <outputGlobalSchemaName/>
+      </extension>
+      <base type="attributes">
+        <model><![CDATA[#
+
+#Fri Sep 09 14:24:31 JST 2022
+
+FAST_CONVERTER_INFORMATION=<?xml version\="1.0" encoding\="UTF-8"?>\n<information><inputSchema><element name\="root"><element name\="data"></element></element></inputSchema><outputSchema><element name\="table"><element name\="row"><loop info\="simple(.)"/><element name\="column">switch(isNull(replaceBlankWithNull(substringBefore(xPath(data[1]/text()),\\,))),nullConstant(),substringBefore(xPath(data[1]/text()),\\,))</element></element></element></outputSchema></information>
+
+FAST_CONVERTER_NAME=xml2xml
+
+MAPPING_DOCUMENT_2=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><mapping type\="document" version\="2.3"><output><element comment\="" expanded\="true" predicate\="" qName\="table" type\="String"><element comment\="" expanded\="true" predicate\="" qName\="row" type\="String"><links><logic class\="com.appresso.ds.mapper.model.SimpleLoopIcon" comment\="" id\="ae0000bg0sl04sslm899n8sao685" layerName\="\u57FA\u672C" type\="String" x\="315" y\="19"><links><ref id\="jm0000bg0sl04sslm8j8fgmio685"/></links></logic><null/></links><element comment\="data" expanded\="false" predicate\="" qName\="column" type\="String"><links><null/><logic class\="com.appresso.ds.mapper.model.SwitchIcon" comment\="" id\="a40000bg0sl04sslm8ks1qtko685" layerName\="\u57FA\u672C" type\="String" x\="628" y\="145"><field name\="conditionCount" value\="1"/><links><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$IsNullIcon" comment\="" id\="m40000bg0sl04sslm8mrjb08o685" type\="String" x\="523" y\="95"><links><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$ReplaceBlankWithNullIcon" comment\="" id\="ci0000bg0sl04sslm8irpe42o685" type\="String" x\="423" y\="92"><links><logic class\="com.appresso.ds.mapper.model.CoreFunctionIcon$SubstringBeforeIcon" comment\="\u30AB\u30F3\u30DE\u3088\u308A\u524D" id\="tm0000bg0sl04sslm80r41h0o685" type\="String" x\="291" y\="189"><field name\="substring" value\=","/><links><ref id\="i80000bg0sl04sslm878l7vmo685"/></links></logic></links></logic></links></logic><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$NullConstantIcon" comment\="" id\="qm0000bg0sl04sslm8mrnm1ao685" type\="String" x\="528" y\="136"/><ref id\="tm0000bg0sl04sslm80r41h0o685"/></links></logic></links></element></element></element></output><outputVariables><outputVariable name\="i-input" type\="String"><links><logic class\="com.appresso.ds.mapper.model.SwitchIcon" comment\="" id\="g00000bg0sl04sslm8isk9lgo685" layerName\="\u57FA\u672C" type\="String" x\="639" y\="296"><field name\="conditionCount" value\="1"/><links><ref id\="m40000bg0sl04sslm8mrjb08o685"/><ref id\="i80000bg0sl04sslm878l7vmo685"/><logic class\="com.appresso.ds.mapper.model.CoreFunctionIcon$SubstringAfterIcon" comment\="\u30AB\u30F3\u30DE\u3088\u308A\u5F8C" id\="bc0000bg0sl04sslm86r2uico685" type\="String" x\="369" y\="416"><field name\="substring" value\=","/><links><ref id\="i80000bg0sl04sslm878l7vmo685"/></links></logic></links></logic></links></outputVariable><outputVariable name\="-temp" type\="String"><links><ref id\="a40000bg0sl04sslm8ks1qtko685" layerName\="\u57FA\u672C"/></links></outputVariable><outputVariable name\="-tempFileName" type\="String"><links><logic class\="com.appresso.ds.mapper.model.CoreFunctionIcon$ConcatIcon" comment\="" id\="vi0000bg0sl04sslm82ub7jio685" layerName\="\u30D5\u30A1\u30A4\u30EB\u540D" type\="String" x\="620" y\="193"><field name\="inputCount" value\="3"/><field name\="nullOption" value\="UNIQUE"/><links><logic class\="com.appresso.ds.mapper.model.ConstantIcon$SingleLineStringConstantIcon" comment\=".commaToArray_" id\="m60000bg0sl04sslm8su5s2eo685" type\="String" x\="437" y\="156"><field name\="constant" value\=".commaToArray_"/></logic><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$EidIcon" comment\="" id\="k60000bg0sl04sslm8au8skeo685" type\="String" x\="477" y\="213"/><logic class\="com.appresso.ds.mapper.model.ConstantIcon$SingleLineStringConstantIcon" comment\=".csv" id\="gk0000bg0sl04sslm80u6kemo685" type\="String" x\="455" y\="294"><field name\="constant" value\=".csv"/></logic></links></logic></links></outputVariable></outputVariables><input schemaSynchronized\="true"><element comment\="" expanded\="true" id\="jm0000bg0sl04sslm8j8fgmio685" predicate\="" qName\="root" type\="String"><element comment\="" expanded\="false" id\="i80000bg0sl04sslm878l7vmo685" predicate\="1" qName\="data" type\="String"/></element></input><layers><layer name\="\u57FA\u672C"/><layer name\="\u30D5\u30A1\u30A4\u30EB\u540D"/></layers></mapping>
+
+TYPE=dataMapper
+
+INPUT_ADAPTER_DOCUMENT=o-outputXML
+
+TEST_DATA=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<testData>\r\n  <inputDocument/>\r\n  <inputVariables/>\r\n  <inputComponentProperties/>\r\n  <inputVariables/>\r\n  <inputComponentProperties/>\r\n  <outputVariables/>\r\n</testData>\r\n
+
+MAPPING_DOCUMENT=
+
+VARIABLES_MAPPER_INFORMATION=variables(setVariable(String,i-input,switch(isNull(replaceBlankWithNull(substringBefore(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B,o-outputXML,/root/data[1]/text(),String),\\,))),document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B,o-outputXML,/root/data[1]/text(),String),substringAfter(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B,o-outputXML,/root/data[1]/text(),String),\\,))),setVariable(String,-temp,switch(isNull(replaceBlankWithNull(substringBefore(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B,o-outputXML,/root/data[1]/text(),String),\\,))),nullConstant(),substringBefore(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B,o-outputXML,/root/data[1]/text(),String),\\,))),setVariable(String,-tempFileName,concat(,,UNIQUE,3,singleLineStringConstant(.commaToArray_),eid(),singleLineStringConstant(.csv))))
+
+INPUT_ADAPTER=scr_\u6587\u5B57\u5217\u578BtoXML\u578B
+
+GRID_SIZE=0
+
+]]></model>
+      </base>
+    </memento>
+    <memento id="m80000bg0sl04sslm87jadjko685" type="DataProcessingCallComponent">
+      <base type="attributes">
+        <moduleName><![CDATA[csv_adapter]]></moduleName>
+        <operationName><![CDATA[put_data]]></operationName>
+        <operationProperties children="property" type="attributes">
+          <property key="DELIMITER_DIRECT::value"/>
+          <property key="DELIMITER_MODE::value"><![CDATA[DELIMITER_MODE_LIST_VALUE]]></property>
+          <property key="COLUMNS::row::0::column::COLUMN_QUOTED"><![CDATA[false]]></property>
+          <property key="NOT_INSERT_FIRST_LINE_FILE_EXIST::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHARSET::type"><![CDATA[simple]]></property>
+          <property key="APPEND::type"><![CDATA[simple]]></property>
+          <property key="COLUMNS::type"><![CDATA[table]]></property>
+          <property key="SUPPORTS_TX::type"><![CDATA[simple]]></property>
+          <property key="OVER_WRITE_MODE::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_DIRECT::type"><![CDATA[simple]]></property>
+          <property key="SUPPORTS_TX::value"><![CDATA[false]]></property>
+          <property key="APPEND::value"><![CDATA[true]]></property>
+          <property key="DELIMITER_MODE::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHARSET::value"/>
+          <property key="COLUMNS::columns"><![CDATA[COLUMN_NAME::COLUMN_QUOTED]]></property>
+          <property key="FILE_PATH::type"><![CDATA[simple]]></property>
+          <property key="NEW_LINE::type"><![CDATA[simple]]></property>
+          <property key="CHARSET::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHAR::type"><![CDATA[simple]]></property>
+          <property key="OVER_WRITE_MODE::value"><![CDATA[true]]></property>
+          <property key="NEW_LINE::value"><![CDATA[AUTO]]></property>
+          <property key="DELIMITER_CHAR::value"><![CDATA[,]]></property>
+          <property key="NOT_INSERT_FIRST_LINE_FILE_EXIST::value"><![CDATA[true]]></property>
+          <property key="INSERT_FIRST_LINE::value"><![CDATA[false]]></property>
+          <property key="FILE_PATH::value"><![CDATA[/data/${-tempFileName}]]></property>
+          <property key="COLUMNS::row::0::column::COLUMN_NAME"><![CDATA[data]]></property>
+          <property key="CHARSET::value"><![CDATA[Windows-31J]]></property>
+          <property key="INSERT_FIRST_LINE::type"><![CDATA[simple]]></property>
+          <property key="COLUMNS::rows"><![CDATA[1]]></property>
+        </operationProperties>
+      </base>
+      <name><![CDATA[csv_一時ファイル書き込み(末尾用)]]></name>
+      <extension type="attributes">
+        <locationX><![CDATA[224]]></locationX>
+        <locationY><![CDATA[384]]></locationY>
+        <index><![CDATA[12]]></index>
+        <breakPoint><![CDATA[false]]></breakPoint>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="o40000lg1fl22srfrll0turio66l" type="ReturnComponent">
+      <extension type="attributes">
+        <index><![CDATA[5]]></index>
+        <locationX><![CDATA[64]]></locationX>
+        <locationY><![CDATA[576]]></locationY>
+      </extension>
+      <base type="attributes"/>
+    </memento>
+    <memento id="mo0000bg0sl04sslm88qf5v4o685" type="DataProcessingCallComponent">
+      <base type="attributes">
+        <moduleName><![CDATA[csv_adapter]]></moduleName>
+        <operationName><![CDATA[put_data]]></operationName>
+        <operationProperties children="property" type="attributes">
+          <property key="DELIMITER_DIRECT::value"/>
+          <property key="DELIMITER_MODE::value"><![CDATA[DELIMITER_MODE_LIST_VALUE]]></property>
+          <property key="COLUMNS::row::0::column::COLUMN_QUOTED"><![CDATA[false]]></property>
+          <property key="NOT_INSERT_FIRST_LINE_FILE_EXIST::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHARSET::type"><![CDATA[simple]]></property>
+          <property key="APPEND::type"><![CDATA[simple]]></property>
+          <property key="COLUMNS::type"><![CDATA[table]]></property>
+          <property key="SUPPORTS_TX::type"><![CDATA[simple]]></property>
+          <property key="OVER_WRITE_MODE::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_DIRECT::type"><![CDATA[simple]]></property>
+          <property key="SUPPORTS_TX::value"><![CDATA[false]]></property>
+          <property key="APPEND::value"><![CDATA[true]]></property>
+          <property key="DELIMITER_MODE::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHARSET::value"/>
+          <property key="COLUMNS::columns"><![CDATA[COLUMN_NAME::COLUMN_QUOTED]]></property>
+          <property key="FILE_PATH::type"><![CDATA[simple]]></property>
+          <property key="NEW_LINE::type"><![CDATA[simple]]></property>
+          <property key="CHARSET::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHAR::type"><![CDATA[simple]]></property>
+          <property key="OVER_WRITE_MODE::value"><![CDATA[true]]></property>
+          <property key="NEW_LINE::value"><![CDATA[AUTO]]></property>
+          <property key="DELIMITER_CHAR::value"><![CDATA[,]]></property>
+          <property key="NOT_INSERT_FIRST_LINE_FILE_EXIST::value"><![CDATA[true]]></property>
+          <property key="INSERT_FIRST_LINE::value"><![CDATA[false]]></property>
+          <property key="FILE_PATH::value"><![CDATA[/data/${-tempFileName}]]></property>
+          <property key="COLUMNS::row::0::column::COLUMN_NAME"><![CDATA[data]]></property>
+          <property key="CHARSET::value"><![CDATA[Windows-31J]]></property>
+          <property key="INSERT_FIRST_LINE::type"><![CDATA[simple]]></property>
+          <property key="COLUMNS::rows"><![CDATA[1]]></property>
+        </operationProperties>
+      </base>
+      <name><![CDATA[csv_一時ファイル書き込み]]></name>
+      <extension type="attributes">
+        <locationX><![CDATA[320]]></locationX>
+        <locationY><![CDATA[192]]></locationY>
+        <index><![CDATA[9]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="pe0000lg1fl22srfrl90tuooo66l" type="ScriptOriginComponent">
+      <extension type="attributes">
+        <index><![CDATA[4]]></index>
+        <locationX><![CDATA[64]]></locationX>
+        <locationY><![CDATA[64]]></locationY>
+      </extension>
+      <base type="attributes"/>
+    </memento>
+    <memento id="oe0000jg32l04suln9mmkq0qo686" type="DataProcessingCallComponent">
+      <base type="attributes">
+        <moduleName><![CDATA[file_operation_adapter]]></moduleName>
+        <operationName><![CDATA[delete_file]]></operationName>
+        <operationProperties children="property" type="attributes">
+          <property key="FILE_PATH::type"><![CDATA[simple]]></property>
+          <property key="FILE_REMOVE_OPTION::value"><![CDATA[false]]></property>
+          <property key="FILE_REMOVE_OPTION::type"><![CDATA[simple]]></property>
+          <property key="EXIST_ON_ERROR::value"><![CDATA[false]]></property>
+          <property key="EXIST_ON_ERROR::type"><![CDATA[simple]]></property>
+          <property key="FILE_PATH::value"><![CDATA[/data/${-tempFileName}]]></property>
+        </operationProperties>
+      </base>
+      <name><![CDATA[delete_一時ファイル削除]]></name>
+      <extension type="attributes">
+        <locationX><![CDATA[224]]></locationX>
+        <locationY><![CDATA[544]]></locationY>
+        <index><![CDATA[30]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="l20000bg0sl04sslm8fjadtco685" type="ScriptCallComponent">
+      <name><![CDATA[scr_文字列型toXML型(末尾用)]]></name>
+      <extension type="attributes">
+        <inputTypes children="property" type="attributes">
+          <property key="i-string"><![CDATA[string]]></property>
+        </inputTypes>
+        <inputRequireds children="property" type="attributes">
+          <property key="i-string"><![CDATA[false]]></property>
+        </inputRequireds>
+        <outputTypes children="property" type="attributes">
+          <property key="o-outputXML"><![CDATA[xml]]></property>
+        </outputTypes>
+        <locationX><![CDATA[224]]></locationX>
+        <locationY><![CDATA[288]]></locationY>
+        <index><![CDATA[13]]></index>
+        <breakPoint><![CDATA[false]]></breakPoint>
+      </extension>
+      <base type="attributes">
+        <scriptParam children="property" type="attributes">
+          <property key="i-string"><![CDATA[${i-input}]]></property>
+        </scriptParam>
+        <projectOwner><![CDATA[root]]></projectOwner>
+        <scriptName><![CDATA[Util/文字列型ToXML型変換]]></scriptName>
+      </base>
+      <description/>
+    </memento>
+    <memento id="ea0000bg0sl04sslm8njaa5go685" type="VariableProcessingComponent">
+      <name><![CDATA[map_カンマ区切り分割(末尾用)]]></name>
+      <extension type="attributes">
+        <inputPSPSupported><![CDATA[false]]></inputPSPSupported>
+        <outputPSPSupported><![CDATA[false]]></outputPSPSupported>
+        <locationX><![CDATA[384]]></locationX>
+        <locationY><![CDATA[288]]></locationY>
+        <index><![CDATA[11]]></index>
+        <outputGlobalSchemaName/>
+        <breakPoint><![CDATA[false]]></breakPoint>
+      </extension>
+      <base type="attributes">
+        <model><![CDATA[#
+#Fri Sep 09 14:37:17 JST 2022
+FAST_CONVERTER_INFORMATION=<?xml version\="1.0" encoding\="UTF-8"?>\n<information><inputSchema><element name\="root"><element name\="data"></element></element></inputSchema><outputSchema><element name\="table"><element name\="row"><loop info\="simple(.)"/><element name\="column">switch(isNull(replaceBlankWithNull(substringBefore(xPath(data[1]/text()),\\,))),xPath(data[1]/text()),substringBefore(xPath(data[1]/text()),\\,))</element></element></element></outputSchema></information>
+FAST_CONVERTER_NAME=xml2xml
+MAPPING_DOCUMENT_2=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><mapping type\="document" version\="2.3"><output><element comment\="" expanded\="true" predicate\="" qName\="table" type\="String"><element comment\="" expanded\="true" predicate\="" qName\="row" type\="String"><links><logic class\="com.appresso.ds.mapper.model.SimpleLoopIcon" comment\="" id\="ae0000bg0sl04sslm899n8sao685" layerName\="\u57FA\u672C" type\="String" x\="315" y\="19"><links><ref id\="jm0000bg0sl04sslm8j8fgmio685"/></links></logic><null/></links><element comment\="data" expanded\="false" predicate\="" qName\="column" type\="String"><links><null/><logic class\="com.appresso.ds.mapper.model.SwitchIcon" comment\="" id\="a40000bg0sl04sslm8ks1qtko685" layerName\="\u57FA\u672C" type\="String" x\="628" y\="145"><field name\="conditionCount" value\="1"/><links><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$IsNullIcon" comment\="" id\="m40000bg0sl04sslm8mrjb08o685" type\="String" x\="523" y\="95"><links><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$ReplaceBlankWithNullIcon" comment\="" id\="ci0000bg0sl04sslm8irpe42o685" type\="String" x\="423" y\="92"><links><logic class\="com.appresso.ds.mapper.model.CoreFunctionIcon$SubstringBeforeIcon" comment\="\u30AB\u30F3\u30DE\u3088\u308A\u524D" id\="tm0000bg0sl04sslm80r41h0o685" type\="String" x\="367" y\="174"><field name\="substring" value\=","/><links><ref id\="i80000bg0sl04sslm878l7vmo685"/></links></logic></links></logic></links></logic><ref id\="i80000bg0sl04sslm878l7vmo685"/><ref id\="tm0000bg0sl04sslm80r41h0o685"/></links></logic></links></element></element></element></output><outputVariables><outputVariable name\="i-input" type\="String"><links><logic class\="com.appresso.ds.mapper.model.SwitchIcon" comment\="" id\="g00000bg0sl04sslm8isk9lgo685" layerName\="\u57FA\u672C" type\="String" x\="639" y\="296"><field name\="conditionCount" value\="1"/><links><ref id\="m40000bg0sl04sslm8mrjb08o685"/><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$NullConstantIcon" comment\="" id\="u20000jg32l04suln9hrlr38o685" type\="String" x\="528" y\="285"/><logic class\="com.appresso.ds.mapper.model.CoreFunctionIcon$SubstringAfterIcon" comment\="\u30AB\u30F3\u30DE\u3088\u308A\u5F8C" id\="bc0000bg0sl04sslm86r2uico685" type\="String" x\="378" y\="342"><field name\="substring" value\=","/><links><ref id\="i80000bg0sl04sslm878l7vmo685"/></links></logic></links></logic></links></outputVariable><outputVariable name\="-temp" type\="String"><links><ref id\="a40000bg0sl04sslm8ks1qtko685" layerName\="\u57FA\u672C"/></links></outputVariable><outputVariable name\="-tempFileName" type\="String"><links><logic class\="com.appresso.ds.mapper.model.CoreFunctionIcon$ConcatIcon" comment\="" id\="vi0000bg0sl04sslm82ub7jio685" layerName\="\u30D5\u30A1\u30A4\u30EB\u540D" type\="String" x\="620" y\="193"><field name\="inputCount" value\="3"/><field name\="nullOption" value\="UNIQUE"/><links><logic class\="com.appresso.ds.mapper.model.ConstantIcon$SingleLineStringConstantIcon" comment\=".commaToArray_" id\="m60000bg0sl04sslm8su5s2eo685" type\="String" x\="437" y\="156"><field name\="constant" value\=".commaToArray_"/></logic><logic class\="com.appresso.ds.mapper.model.ExtendedFunctionIcon$EidIcon" comment\="" id\="k60000bg0sl04sslm8au8skeo685" type\="String" x\="477" y\="213"/><logic class\="com.appresso.ds.mapper.model.ConstantIcon$SingleLineStringConstantIcon" comment\=".csv" id\="gk0000bg0sl04sslm80u6kemo685" type\="String" x\="455" y\="294"><field name\="constant" value\=".csv"/></logic></links></logic></links></outputVariable></outputVariables><input schemaSynchronized\="true"><element comment\="" expanded\="true" id\="jm0000bg0sl04sslm8j8fgmio685" predicate\="" qName\="root" type\="String"><element comment\="" expanded\="false" id\="i80000bg0sl04sslm878l7vmo685" predicate\="1" qName\="data" type\="String"/></element></input><layers><layer name\="\u57FA\u672C"/><layer name\="\u30D5\u30A1\u30A4\u30EB\u540D"/></layers></mapping>
+TYPE=dataMapper
+INPUT_ADAPTER_DOCUMENT=o-outputXML
+TEST_DATA=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<testData>\r\n  <inputDocument/>\r\n  <inputVariables/>\r\n  <inputComponentProperties/>\r\n  <inputVariables/>\r\n  <inputComponentProperties/>\r\n  <outputVariables/>\r\n</testData>\r\n
+MAPPING_DOCUMENT=
+VARIABLES_MAPPER_INFORMATION=variables(setVariable(String,i-input,switch(isNull(replaceBlankWithNull(substringBefore(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B(\u672B\u5C3E\u7528),o-outputXML,/root/data[1]/text(),String),\\,))),nullConstant(),substringAfter(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B(\u672B\u5C3E\u7528),o-outputXML,/root/data[1]/text(),String),\\,))),setVariable(String,-temp,switch(isNull(replaceBlankWithNull(substringBefore(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B(\u672B\u5C3E\u7528),o-outputXML,/root/data[1]/text(),String),\\,))),document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B(\u672B\u5C3E\u7528),o-outputXML,/root/data[1]/text(),String),substringBefore(document(scr_\u6587\u5B57\u5217\u578BtoXML\u578B(\u672B\u5C3E\u7528),o-outputXML,/root/data[1]/text(),String),\\,))),setVariable(String,-tempFileName,concat(,,UNIQUE,3,singleLineStringConstant(.commaToArray_),eid(),singleLineStringConstant(.csv))))
+INPUT_ADAPTER=scr_\u6587\u5B57\u5217\u578BtoXML\u578B(\u672B\u5C3E\u7528)
+GRID_SIZE=0
+]]></model>
+      </base>
+    </memento>
+    <memento id="cq0000jg32l04suln9q2r2qqo686" type="DataProcessingCallComponent">
+      <base type="attributes">
+        <moduleName><![CDATA[csv_adapter]]></moduleName>
+        <operationName><![CDATA[get_data]]></operationName>
+        <operationProperties children="property" type="attributes">
+          <property key="DELIMITER_CHARSET::value"/>
+          <property key="COLUMNS::columns"><![CDATA[COLUMN_NAME]]></property>
+          <property key="XMLFW_LARGEDATA::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_MODE::value"><![CDATA[DELIMITER_MODE_LIST_VALUE]]></property>
+          <property key="CHARSET::type"><![CDATA[simple]]></property>
+          <property key="SKIP_FIRST_LINE::value"><![CDATA[false]]></property>
+          <property key="FILE_PATH::type"><![CDATA[simple]]></property>
+          <property key="XMLFW_LARGEDATA::value"><![CDATA[USE_SCRIPT_DEFAULT]]></property>
+          <property key="COLUMNS::row::0::column::COLUMN_NAME"><![CDATA[data]]></property>
+          <property key="COLUMNS::rows"><![CDATA[1]]></property>
+          <property key="ENABLE_PARALLEL::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHAR::value"><![CDATA[,]]></property>
+          <property key="START_LINE_NUMBER::value"><![CDATA[1]]></property>
+          <property key="DELIMITER_DIRECT::value"/>
+          <property key="SKIP_FIRST_LINE::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHAR::type"><![CDATA[simple]]></property>
+          <property key="FILE_PATH::value"><![CDATA[/data/${-tempFileName}]]></property>
+          <property key="DELIMITER_MODE::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_CHARSET::type"><![CDATA[simple]]></property>
+          <property key="DELIMITER_DIRECT::type"><![CDATA[simple]]></property>
+          <property key="CHARSET::value"><![CDATA[Windows-31J]]></property>
+          <property key="ENABLE_PARALLEL::value"><![CDATA[false]]></property>
+          <property key="START_LINE_NUMBER::type"><![CDATA[simple]]></property>
+          <property key="COLUMNS::type"><![CDATA[table]]></property>
+        </operationProperties>
+      </base>
+      <name><![CDATA[csv_一時ファイル読込]]></name>
+      <extension type="attributes">
+        <locationX><![CDATA[224]]></locationX>
+        <locationY><![CDATA[480]]></locationY>
+        <index><![CDATA[27]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="s00000bg0sl04sslm836rhaco685" type="ScriptCallComponent">
+      <name><![CDATA[scr_文字列型toXML型]]></name>
+      <extension type="attributes">
+        <inputTypes children="property" type="attributes">
+          <property key="i-string"><![CDATA[string]]></property>
+        </inputTypes>
+        <inputRequireds children="property" type="attributes">
+          <property key="i-string"><![CDATA[false]]></property>
+        </inputRequireds>
+        <outputTypes children="property" type="attributes">
+          <property key="o-outputXML"><![CDATA[xml]]></property>
+        </outputTypes>
+        <locationX><![CDATA[320]]></locationX>
+        <locationY><![CDATA[96]]></locationY>
+        <index><![CDATA[10]]></index>
+      </extension>
+      <base type="attributes">
+        <scriptParam children="property" type="attributes">
+          <property key="i-string"><![CDATA[${i-input}]]></property>
+        </scriptParam>
+        <projectOwner><![CDATA[root]]></projectOwner>
+        <scriptName><![CDATA[Util/文字列型ToXML型変換]]></scriptName>
+      </base>
+      <description/>
+    </memento>
+    <memento id="e80000bg0sl04sslm86ho8f0o685" type="ConditionalLoopComponent">
+      <name><![CDATA[loop]]></name>
+      <extension type="attributes">
+        <endLineSourceComps type="list">
+          <entry><![CDATA[mo0000bg0sl04sslm88qf5v4o685]]></entry>
+        </endLineSourceComps>
+        <loopType><![CDATA[conditional]]></loopType>
+        <locationX><![CDATA[224]]></locationX>
+        <locationY><![CDATA[64]]></locationY>
+        <index><![CDATA[3]]></index>
+        <endPointX><![CDATA[224]]></endPointX>
+        <endPointY><![CDATA[224]]></endPointY>
+      </extension>
+      <description/>
+    </memento>
+  </children>
+  <children type="variables">
+    <memento id="vs0000bg0sl04sslm8llnmjqo684" type="Variable">
+      <name><![CDATA[-temp]]></name>
+      <base type="attributes">
+        <initialValue/>
+        <valueType><![CDATA[string]]></valueType>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[2]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="ni0000lg1fl22srfrl15d6qao66l" type="Variable">
+      <name><![CDATA[o-output]]></name>
+      <base type="attributes">
+        <initialValue/>
+        <inputParam><![CDATA[false]]></inputParam>
+        <outputParam><![CDATA[true]]></outputParam>
+        <valueType><![CDATA[xml]]></valueType>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[1]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="m80000lg1fl22srfrlb18tfso66l" type="Variable">
+      <name><![CDATA[i-input]]></name>
+      <base type="attributes">
+        <initialValue><![CDATA[test,test2]]></initialValue>
+        <inputParam><![CDATA[true]]></inputParam>
+        <outputParam><![CDATA[false]]></outputParam>
+        <valueType><![CDATA[string]]></valueType>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="qq0000bg0sl04sslm8gmlqg0o685" type="Variable">
+      <name><![CDATA[-tempFileName]]></name>
+      <base type="attributes">
+        <initialValue/>
+        <valueType><![CDATA[string]]></valueType>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[3]]></index>
+      </extension>
+      <description/>
+    </memento>
+  </children>
+  <children type="relations">
+    <memento id="hq0000bg0sl04sslm8pjih7so685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[e80000bg0sl04sslm86ho8f0o685]]></fromID>
+        <toID><![CDATA[l20000bg0sl04sslm8fjadtco685]]></toID>
+      </base>
+    </memento>
+    <memento id="vg0000bg0sl04sslm8jjaehko685" type="DataFlow">
+      <base type="attributes">
+        <fromName><![CDATA[o-outputXML]]></fromName>
+        <toName><![CDATA[main_data]]></toName>
+        <fromID><![CDATA[l20000bg0sl04sslm8fjadtco685]]></fromID>
+        <toID><![CDATA[ea0000bg0sl04sslm8njaa5go685]]></toID>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+    </memento>
+    <memento id="ge0000bg0sl04sslm8f04rqqo685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[le0000bg0sl04sslm88pl9d0o685]]></fromID>
+        <toID><![CDATA[mo0000bg0sl04sslm88qf5v4o685]]></toID>
+      </base>
+    </memento>
+    <memento id="je0000bg0sl04sslm8cqf6rko685" type="DataFlow">
+      <base type="attributes">
+        <fromName><![CDATA[main_data]]></fromName>
+        <toName><![CDATA[main_data]]></toName>
+        <fromID><![CDATA[le0000bg0sl04sslm88pl9d0o685]]></fromID>
+        <toID><![CDATA[mo0000bg0sl04sslm88qf5v4o685]]></toID>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+    </memento>
+    <memento id="k00000jg32l04suln902sppeo686" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[m80000bg0sl04sslm87jadjko685]]></fromID>
+        <toID><![CDATA[cq0000jg32l04suln9q2r2qqo686]]></toID>
+      </base>
+    </memento>
+    <memento id="i00000jg32l04suln9qmm6joo686" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[cq0000jg32l04suln9q2r2qqo686]]></fromID>
+        <toID><![CDATA[oe0000jg32l04suln9mmkq0qo686]]></toID>
+      </base>
+    </memento>
+    <memento id="pk0000bg0sl04sslm8n7c8bio685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[s00000bg0sl04sslm836rhaco685]]></fromID>
+        <toID><![CDATA[le0000bg0sl04sslm88pl9d0o685]]></toID>
+      </base>
+    </memento>
+    <memento id="vc0000bg0sl04sslm8tjaelao685" type="DataFlow">
+      <base type="attributes">
+        <fromName><![CDATA[main_data]]></fromName>
+        <toName><![CDATA[main_data]]></toName>
+        <fromID><![CDATA[ea0000bg0sl04sslm8njaa5go685]]></fromID>
+        <toID><![CDATA[m80000bg0sl04sslm87jadjko685]]></toID>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+    </memento>
+    <memento id="s20000bg0sl04sslm8fjaefao685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[ea0000bg0sl04sslm8njaa5go685]]></fromID>
+        <toID><![CDATA[m80000bg0sl04sslm87jadjko685]]></toID>
+      </base>
+    </memento>
+    <memento id="r00000bg0sl04sslm86isjgeo685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[pe0000lg1fl22srfrl90tuooo66l]]></fromID>
+        <toID><![CDATA[e80000bg0sl04sslm86ho8f0o685]]></toID>
+      </base>
+    </memento>
+    <memento id="n60000bg0sl04sslm8qho8gmo685" type="ConditionalLoopFlow">
+      <base type="attributes">
+        <args children="property" type="attributes">
+          <property key="target0"><![CDATA[i-input]]></property>
+        </args>
+        <implementation><![CDATA[return (target0.stringValue().contains(","));
+
+]]></implementation>
+        <model><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<memento>
+
+  <subConditionCount><![CDATA[1]]]]><![CDATA[></subConditionCount>
+
+  <method0><![CDATA[compareWithConstant]]]]><![CDATA[></method0>
+
+  <targetVariable0><![CDATA[i-input]]]]><![CDATA[></targetVariable0>
+
+  <relation0><![CDATA[contains]]]]><![CDATA[></relation0>
+
+  <compareTo0><![CDATA[,]]]]><![CDATA[></compareTo0>
+
+  <leftParenthesis0/>
+
+  <rightParenthesis0/>
+
+  <and0><![CDATA[true]]]]><![CDATA[></and0>
+
+</memento>
+
+]]></model>
+        <fromID><![CDATA[e80000bg0sl04sslm86ho8f0o685]]></fromID>
+        <toID><![CDATA[s00000bg0sl04sslm836rhaco685]]></toID>
+      </base>
+    </memento>
+    <memento id="di0000bg0sl04sslm8r7c8doo685" type="DataFlow">
+      <base type="attributes">
+        <fromName><![CDATA[o-outputXML]]></fromName>
+        <toName><![CDATA[main_data]]></toName>
+        <fromID><![CDATA[s00000bg0sl04sslm836rhaco685]]></fromID>
+        <toID><![CDATA[le0000bg0sl04sslm88pl9d0o685]]></toID>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+    </memento>
+    <memento id="g20000bg0sl04sslm8bjaejko685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[l20000bg0sl04sslm8fjadtco685]]></fromID>
+        <toID><![CDATA[ea0000bg0sl04sslm8njaa5go685]]></toID>
+      </base>
+    </memento>
+    <memento id="dg0000jg32l04suln9smn3vio686" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[oe0000jg32l04suln9mmkq0qo686]]></fromID>
+        <toID><![CDATA[o40000lg1fl22srfrll0turio66l]]></toID>
+      </base>
+    </memento>
+    <memento id="g60000jg32l04suln982vnmko686" type="DataFlow">
+      <base type="attributes">
+        <fromName><![CDATA[main_data]]></fromName>
+        <toName><![CDATA[o-output]]></toName>
+        <fromID><![CDATA[cq0000jg32l04suln9q2r2qqo686]]></fromID>
+        <toID><![CDATA[o40000lg1fl22srfrll0turio66l]]></toID>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+    </memento>
+  </children>
+</script>
