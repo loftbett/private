@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<script>
+  <memento>
+    <option type="attributes">
+      <DATA_PROCESSING_CONNECTION_OPTION_XMLFW_CONF><![CDATA[false]]></DATA_PROCESSING_CONNECTION_OPTION_XMLFW_CONF>
+    </option>
+    <extension type="attributes">
+      <created><![CDATA[1662700829305]]></created>
+      <lastUpdated><![CDATA[1662700944619]]></lastUpdated>
+      <testArgumentValues children="property" type="attributes"/>
+      <migrationFlows type="attributes"/>
+      <gridSize><![CDATA[32]]></gridSize>
+    </extension>
+  </memento>
+  <children type="components">
+    <memento id="pq0000bg0sl04sslm812eju2o685" type="ReturnComponent">
+      <extension type="attributes">
+        <index><![CDATA[1]]></index>
+        <locationX><![CDATA[64]]></locationX>
+        <locationY><![CDATA[224]]></locationY>
+      </extension>
+      <base type="attributes"/>
+    </memento>
+    <memento id="o00000bg0sl04sslm852ej8io685" type="ScriptOriginComponent">
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+        <locationX><![CDATA[64]]></locationX>
+        <locationY><![CDATA[64]]></locationY>
+      </extension>
+      <base type="attributes"/>
+    </memento>
+    <memento id="oa0000bg0sl04sslm8p3h7aqo685" type="VariableProcessingComponent">
+      <name><![CDATA[mapping]]></name>
+      <extension type="attributes">
+        <inputPSPSupported><![CDATA[false]]></inputPSPSupported>
+        <outputPSPSupported><![CDATA[false]]></outputPSPSupported>
+        <locationX><![CDATA[160]]></locationX>
+        <locationY><![CDATA[128]]></locationY>
+        <index><![CDATA[2]]></index>
+      </extension>
+      <base type="attributes">
+        <model><![CDATA[#
+#Fri Sep 09 14:22:22 JST 2022
+GRID_SIZE=0
+TEST_DATA=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<testData>\r\n  <inputVariables/>\r\n  <inputComponentProperties/>\r\n  <inputVariables/>\r\n  <inputComponentProperties/>\r\n  <outputVariables/>\r\n</testData>\r\n
+VARIABLES_MAPPER_INFORMATION=variables()
+FAST_CONVERTER_INFORMATION=<?xml version\="1.0" encoding\="UTF-8"?>\n<information><inputSchema></inputSchema><outputSchema><element name\="root"><element name\="data">getVariable(String,i-string)</element></element></outputSchema></information>
+MAPPING_DOCUMENT_2=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><mapping type\="document" version\="2.3"><output><element comment\="" expanded\="true" predicate\="" qName\="root" type\="String"><element comment\="" expanded\="true" predicate\="" qName\="data" type\="String"><links><null/><variable id\="p80000bg0sl04sslm8d4lvsgo685" name\="i-string" type\="String"/></links></element></element></output></mapping>
+MAPPING_DOCUMENT=
+FAST_CONVERTER_NAME=xml2xml
+TYPE=dataMapper
+]]></model>
+      </base>
+    </memento>
+  </children>
+  <children type="variables">
+    <memento id="ii0000bg0sl04sslm8r3op1go685" type="Variable">
+      <name><![CDATA[i-string]]></name>
+      <base type="attributes">
+        <initialValue/>
+        <inputParam><![CDATA[true]]></inputParam>
+        <outputParam><![CDATA[false]]></outputParam>
+        <valueType><![CDATA[string]]></valueType>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[3]]></index>
+      </extension>
+      <description/>
+    </memento>
+    <memento id="fi0000bg0sl04sslm8f4g0n8o685" type="Variable">
+      <name><![CDATA[o-outputXML]]></name>
+      <base type="attributes">
+        <initialValue/>
+        <inputParam><![CDATA[false]]></inputParam>
+        <outputParam><![CDATA[true]]></outputParam>
+        <valueType><![CDATA[xml]]></valueType>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[4]]></index>
+      </extension>
+      <description/>
+    </memento>
+  </children>
+  <children type="relations">
+    <memento id="qe0000bg0sl04sslm834kopao685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[oa0000bg0sl04sslm8p3h7aqo685]]></fromID>
+        <toID><![CDATA[pq0000bg0sl04sslm812eju2o685]]></toID>
+      </base>
+    </memento>
+    <memento id="ea0000bg0sl04sslm8p4i35io685" type="ProcessFlow">
+      <base type="attributes">
+        <fromID><![CDATA[o00000bg0sl04sslm852ej8io685]]></fromID>
+        <toID><![CDATA[oa0000bg0sl04sslm8p3h7aqo685]]></toID>
+      </base>
+    </memento>
+    <memento id="ug0000bg0sl04sslm894korqo685" type="DataFlow">
+      <base type="attributes">
+        <fromName><![CDATA[main_data]]></fromName>
+        <toName><![CDATA[o-outputXML]]></toName>
+        <fromID><![CDATA[oa0000bg0sl04sslm8p3h7aqo685]]></fromID>
+        <toID><![CDATA[pq0000bg0sl04sslm812eju2o685]]></toID>
+      </base>
+      <extension type="attributes">
+        <index><![CDATA[0]]></index>
+      </extension>
+    </memento>
+  </children>
+</script>

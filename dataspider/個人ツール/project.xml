@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project>
+  <conf type="attributes">
+    <name><![CDATA[root@個人ツール]]></name>
+    <description/>
+    <archive><![CDATA[個人ツール.jar]]></archive>
+    <testProject><![CDATA[false]]></testProject>
+    <modifier><![CDATA[root]]></modifier>
+    <modified><![CDATA[1662702701423]]></modified>
+    <version><![CDATA[76]]></version>
+    <extensions type="attributes">
+      <folders type="list">
+        <entry><![CDATA[ツール本体]]></entry>
+        <entry><![CDATA[Util]]></entry>
+        <entry><![CDATA[メモ]]></entry>
+      </folders>
+      <folderCreated children="property" type="attributes">
+        <property key="メモ"><![CDATA[1662702365842]]></property>
+        <property key="ツール本体"><![CDATA[1662702694615]]></property>
+        <property key="Util"><![CDATA[1662700805752]]></property>
+      </folderCreated>
+      <folderLastUpdated children="property" type="attributes">
+        <property key="メモ"><![CDATA[1662702384852]]></property>
+        <property key="ツール本体"><![CDATA[1662702697719]]></property>
+        <property key="Util"><![CDATA[1662700805752]]></property>
+      </folderLastUpdated>
+      <id_o40000lg1fl22srfrl30tun8o66l><![CDATA[0]]></id_o40000lg1fl22srfrl30tun8o66l>
+      <customLogicDefinition><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?><palette type="project" version="2.3"/>]]></customLogicDefinition>
+      <id_a20000bg0sl04sslm8p2ej7ao685><![CDATA[0]]></id_a20000bg0sl04sslm8p2ej7ao685>
+      <id_ac0000jg32l04suln9ohtmbso686><![CDATA[0]]></id_ac0000jg32l04suln9ohtmbso686>
+    </extensions>
+  </conf>
+  <entries type="attributes">
+    <entry key="a20000bg0sl04sslm8p2ej7ao685" type="attributes">
+      <name><![CDATA[Util/文字列型ToXML型変換]]></name>
+      <type><![CDATA[ScriptEntry]]></type>
+      <description/>
+      <version><![CDATA[2]]></version>
+    </entry>
+    <entry key="o40000lg1fl22srfrl30tun8o66l" type="attributes">
+      <name><![CDATA[ツール本体/1.カンマ区切りをテーブル型変換]]></name>
+      <type><![CDATA[ScriptEntry]]></type>
+      <description/>
+      <version><![CDATA[53]]></version>
+    </entry>
+    <entry key="ac0000jg32l04suln9ohtmbso686" type="attributes">
+      <name><![CDATA[メモ/1.説明]]></name>
+      <type><![CDATA[ScriptEntry]]></type>
+      <description/>
+      <version><![CDATA[3]]></version>
+    </entry>
+  </entries>
+</project>
